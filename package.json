@@ -1,0 +1,29 @@
+{
+  "name": "ndihackfromthegarage1",
+  "version": "1.0.0",
+  "description": "Projet de l'équipe HackFromTheGarage1 de l'ISEP pour la Nuit de L'info 2018",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [
+    "NDI",
+    "Nuit",
+    "De",
+    "L'Info",
+    "ISEP",
+    "HackFromTheGarage",
+    "GarageISEP"
+  ],
+  "author": "HackFromTheGarage1",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^7.0.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1"
+  }
+}
