@@ -20,6 +20,18 @@ class Chatbot extends Component {
         this.sendMessage = this.sendMessage.bind(this);
     }
 
+    scrollToBottom = () => {
+        this.scroller.scrollTop = this.scroller.scrollHeight;
+    }
+
+    componentDidMount() {
+        this.scrollToBottom();
+    }
+
+    componentDidUpdate() {
+        this.scrollToBottom();
+    }
+
 
     handleInputChange(event){
         const target = event.target;
@@ -40,18 +52,19 @@ class Chatbot extends Component {
             this.setState({messages: allMessages});
             // on supprimer ce qu'il y a dans le textarea
             this.setState({message: ""})
-            // on envoie le message avec l'api
+            // on envoie le message avec l'api au serveur
+
+
             /*
             this.api.sendMessage(this.state.message).then(res=>{
                 console.log(res);
-            });
-            */
-            // la réponse de l'ordi
-
-            setTimeout(()=>{
                 allMessages.push({computer: true, date: new Date(), message: "Fuck You man!"});
                 this.setState({loading: false});
-            }, 1000);
+            }).catch(err=>{
+                console.log(err)
+            })
+            */
+
 
 
 
@@ -83,7 +96,7 @@ class Chatbot extends Component {
 
                 <div className="chatbox" id="box">
 
-                    <div className="chatlogs">
+                    <div className="chatlogs" ref={(el) => { this.scroller = el; }}>
 
                         <div className="chat friend">
                             <div className="user-photo"><img src={"/static/images/sarcasticGuy.png"}/></div>
@@ -98,6 +111,10 @@ class Chatbot extends Component {
                             <div className="user-photo"><img src={"/static/images/sarcasticGuy.png"}/></div>
                             <div className="gif"><img src={"/static/images/loading.gif"}/></div>
                         </div> : null}
+
+                        <div style={{ float:"left", clear: "both" }}
+                             ref={(el) => { this.messagesEnd = el; }}>
+                        </div>
 
 
                     </div>

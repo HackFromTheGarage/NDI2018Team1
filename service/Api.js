@@ -7,6 +7,7 @@ class Api {
     }
 
     sendMessage(message){
+        console.log(message)
         return axios.post('/api/bot/sendMessage', {
             message: message
         });
