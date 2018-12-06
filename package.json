@@ -4,7 +4,7 @@
   "description": "Projet de l'équipe HackFromTheGarage1 de l'ISEP pour la Nuit de L'info 2018",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "nodemon server.js --watch api",
     "build": "next build",
     "start": "next start"
   },
@@ -20,7 +20,10 @@
   "author": "HackFromTheGarage1",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
     "next": "^7.0.2",
+    "nodemon": "^1.18.7",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^6.0.0",
