@@ -134,7 +134,7 @@
 }
 
 
-.chat-form textarea {
+.chat-form input {
     padding: 5px 5px 5px 15px;
     background: #fbfbfb;
     width: 100%;
@@ -152,7 +152,7 @@
 
 }
 
-.chat-form textarea:focus {
+.chat-form input:focus {
     background: #fff;
 }
 

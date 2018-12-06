@@ -46,24 +46,29 @@ class Chatbot extends Component {
     sendMessage(event){
         // vérifions que la touche appuyée est la touche Entrée
         if (event.key === 'Enter') {
-            this.setState({loading: true});
-            let allMessages = this.state.messages;
-            allMessages.push({computer: false, date: new Date(), message: this.state.message});
-            this.setState({messages: allMessages});
-            // on supprimer ce qu'il y a dans le textarea
-            this.setState({message: ""})
-            // on envoie le message avec l'api au serveur
 
 
-            /*
-            this.api.sendMessage(this.state.message).then(res=>{
-                console.log(res);
-                allMessages.push({computer: true, date: new Date(), message: "Fuck You man!"});
-                this.setState({loading: false});
-            }).catch(err=>{
-                console.log(err)
-            })
-            */
+            if(this.state.message.length>0){
+                this.setState({loading: true});
+                let allMessages = this.state.messages;
+                allMessages.push({computer: false, date: new Date(), message: this.state.message});
+                this.setState({messages: allMessages});
+                // on supprimer ce qu'il y a dans le textarea
+                this.setState({message: ""})
+                // on envoie le message avec l'api au serveur
+
+
+                /*
+                this.api.sendMessage(this.state.message).then(res=>{
+                    console.log(res);
+                    allMessages.push({computer: true, date: new Date(), message: "Fuck You man!"});
+                    this.setState({loading: false});
+                }).catch(err=>{
+                    console.log(err)
+                })
+                */
+            }
+
 
 
 
@@ -112,9 +117,7 @@ class Chatbot extends Component {
                             <div className="gif"><img src={"/static/images/loading.gif"}/></div>
                         </div> : null}
 
-                        <div style={{ float:"left", clear: "both" }}
-                             ref={(el) => { this.messagesEnd = el; }}>
-                        </div>
+
 
 
                     </div>
@@ -122,7 +125,7 @@ class Chatbot extends Component {
                 <div className="chat-form">
                     <div id="inputDiv">
                         <div id="buttonDiv"></div>
-                        <textarea name="message" className="input" placeholder="Message" rows="1" data-min-rows='1' onChange={this.handleInputChange} value={this.state.message} onKeyPress={this.sendMessage}></textarea>
+                        <input name="message" className="input" placeholder="Message" rows="1" data-min-rows='1' onChange={this.handleInputChange} value={this.state.message} onKeyPress={this.sendMessage}></input>
                     </div>
                     <div id="sound">
                         <img id="soundButton" src={"/static/images/sound.png"} />
