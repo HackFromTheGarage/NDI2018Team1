@@ -4,7 +4,7 @@
   "description": "Projet de l'équipe HackFromTheGarage1 de l'ISEP pour la Nuit de L'info 2018",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js --watch api",
+    "dev": "nodemon --legacy-watch server.js --watch api",
     "build": "next build",
     "start": "next start"
   },
