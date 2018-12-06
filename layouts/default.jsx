@@ -7,6 +7,7 @@ export default ({ children, title = 'HackFromTheGarage1' }) => (
         <title>{ title }</title>
         <meta charSet='utf-8' />
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <link rel="stylesheet" type="text/css" href="../static/styles.css"/>
         </Head>
         <div className="app">
             <header>
