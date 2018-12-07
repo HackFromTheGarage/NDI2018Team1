@@ -11,7 +11,9 @@ export default () => (
             <div>
                 <div className="rectangle"></div>
                 <div className="rectangle"></div>
+
             </div>
+            <a href="/static/index.html">Notre site</a>
 
         </Layout>
 

@@ -19,8 +19,6 @@ services:
     restart: always
     volumes:
       - /var/lib/mysql # Persist database
-    ports:
-      - 3306:3306
     environment:
       - MYSQL_DATABASE=ndi
       - MYSQL_ROOT_PASSWORD=devpass
