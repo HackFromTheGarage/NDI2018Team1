@@ -42,12 +42,16 @@ function formattedAnswer(text) { // detect the insults
   var answer
 
   const swrWords = ["arse","arsehole","arses","ass","asses","asshole","bastard","bitch","bloody","boob","butt","butts","cock","cocks","crap","crappy","cunt","damn","dang","darn","dick","dicks","dumb","dyke","fuck","fucked","fucker","fuckin","fucks","goddam","heck","hell","homo","jeez","mofo","motherf","nigger","piss","prick","pussy","queer","screw","shit","sob","sonofa","suck","sucked","sucks","tit","tits","titties","titty","wanker"];
-  swrWords.forEach(word => {
+  const res = swrWords.forEach(word => {
     if (text.indexOf(word) !== -1) {
+
       answer = "Wow, you said '" + word +"', didn't you? Your mom will be really proud of you!"
       return answer
     }
   });
-  return false
+  if (res == "") {
+    return false
+  }
+  return res
 
 }
