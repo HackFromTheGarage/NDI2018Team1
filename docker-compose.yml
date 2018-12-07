@@ -7,6 +7,8 @@ services:
     volumes:
       - ./:/usr/src/app
       - /usr/src/app/node_modules # Avoid mixing files
+    depends_on:
+      - mysql
     ports:
       - "3000:3000"
     #environment:

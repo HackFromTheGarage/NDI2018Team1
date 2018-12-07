@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon --legacy-watch server.js --watch api",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "migrate": "sequelize db:migrate"
   },
   "keywords": [
     "NDI",
