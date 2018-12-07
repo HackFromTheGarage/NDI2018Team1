@@ -14,7 +14,7 @@ class Backpack extends Component {
 
         this.state = {
             constraints: { audio: false, video: { width: 400, height: 300 } },
-
+            scannedData: ""
         };
 
         this.handleStartClick = this.handleStartClick.bind(this);
@@ -44,7 +44,10 @@ class Backpack extends Component {
                 video.oncanplay = function() {
                     setInterval(() => {
                         QrScanner.scanImage(video)
-                            .then(result => console.log(result))
+                            .then(result => {
+                                this.setState({scannedData: result});
+                                
+                            })
                             .catch(error => console.log(error || 'No QR code found.'));
                     }, 5000)
                 }
