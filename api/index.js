@@ -1,12 +1,14 @@
 const { Router } = require('express')
 
+const generateAnswer = require('./utils/bot')
+
 const router = Router()
 
 router.post('/bot/sendMessage', function (req, res, next) {
-    const { message } = req.body;
+    const { message } = req.body
 
     return res.json({
-        "message": message
+        "message": generateAnswer(sendMessage)
     })
 })
 

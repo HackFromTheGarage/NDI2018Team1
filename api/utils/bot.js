@@ -1,4 +1,4 @@
-const w2v = require("word2vec"); //import word2vec for using similarities
+//const w2v = require("word2vec"); //import word2vec for using similarities
 const sentiment = require('node-sentiment'); //import sentiment
 const json = require("./topics.json");
 const random = require("random"); //import random number
@@ -49,3 +49,5 @@ function formattedAnswer(text) { // detect the insults
   }
 
 }
+
+module.export = generateAnswer;

@@ -13,14 +13,12 @@ services:
       #- VIRTUAL_HOST=solidarite.ponsaille.com
       #- LETSENCRYPT_HOST=solidarite.ponsaille.com
       #- LETSENCRYPT_EMAIL=jules.ponsaille@gmail.com
-  
+
   mysql:
     image: mysql
     restart: always
     volumes:
       - /var/lib/mysql # Persist database
-    ports:
-      - 3306:3306
     environment:
       - MYSQL_DATABASE=ndi
       - MYSQL_ROOT_PASSWORD=devpass
