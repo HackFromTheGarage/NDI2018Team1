@@ -15,7 +15,7 @@ services:
       #- LETSENCRYPT_EMAIL=jules.ponsaille@gmail.com
   
   mysql:
-    image: mysql
+    image: mysql:5.7
     restart: always
     volumes:
       - /var/lib/mysql # Persist database
