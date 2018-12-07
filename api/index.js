@@ -8,7 +8,7 @@ router.post('/bot/sendMessage', function (req, res, next) {
     const { message } = req.body
 
     return res.json({
-        "message": generateAnswer(sendMessage)
+        "message": generateAnswer(message)
     })
 })
 
