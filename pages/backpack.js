@@ -2,21 +2,25 @@ import Layout from '../layouts/default';
 import Link from 'next/link';
 
 import React, { Component } from 'react';
-
+import QrScanner from '../libraries/qr-scanner/qr-code.js';
 
 class Backpack extends Component {
+
+
 
 
     constructor(props) {
         super(props);
 
         this.state = {
-            constraints: { audio: false, video: { width: 400, height: 300 } }
+            constraints: { audio: false, video: { width: 400, height: 300 } },
+
         };
 
         this.handleStartClick = this.handleStartClick.bind(this);
         this.takePicture = this.takePicture.bind(this);
         this.clearPhoto = this.clearPhoto.bind(this);
+
     }
 
     componentDidMount(){
@@ -27,13 +31,23 @@ class Backpack extends Component {
             })
         );
 
+
+
+
         getUserMedia(constraints)
             .then((stream) => {
                 const video = document.querySelector('video');
                 const vendorURL = window.URL || window.webkitURL;
 
                 video.src = vendorURL.createObjectURL(stream);
-                video.play();
+                video.autoplay = true;
+                video.oncanplay = function() {
+                    setInterval(() => {
+                        QrScanner.scanImage(video)
+                            .then(result => console.log(result))
+                            .catch(error => console.log(error || 'No QR code found.'));
+                    }, 5000)
+                }
             })
             .catch((err) => {
                 console.log(err);
@@ -43,6 +57,17 @@ class Backpack extends Component {
             this.clearPhoto();
 
         }, 2000)
+
+        const video = document.getElementById('video');
+        const qrScanner = new QrScanner(video, result => console.log('decoded qr code:', result));
+
+
+
+
+
+
+
+
     }
 
 
@@ -90,7 +115,7 @@ class Backpack extends Component {
                 ></video>
                 <a id="startButton"
                    onClick={ props.handleStartClick }
-                   
+
                 >Take photo</a>
             </div>
         );
