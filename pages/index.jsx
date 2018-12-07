@@ -4,8 +4,8 @@ export default () => (
         <Layout title="Acueil | HackFromTheGarage1">
            <p>Projet de HackFromTheGarage1</p>
             <div>
-                <div className="rectangle"></div>
-                <div className="rectangle"></div>
+                <div className="rectangle"><a href="/chatbot/chatbot">Chatbot</a></div>
+                <div className="rectangle"><a href="/backpack">QR Scanner</a></div>
 
             </div>
             <div>
