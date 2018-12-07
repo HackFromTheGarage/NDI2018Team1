@@ -20,10 +20,13 @@
   "author": "HackFromTheGarage1",
   "license": "ISC",
   "dependencies": {
+    "blob": "0.0.5",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "jimp": "^0.6.0",
     "next": "^7.0.2",
     "nodemon": "^1.18.7",
+    "qrcode": "^1.3.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^6.0.0",
