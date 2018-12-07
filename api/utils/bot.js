@@ -2,6 +2,8 @@ const w2v = require("word2vec"); //import word2vec for using similarities
 const sentiment = require('node-sentiment'); //import sentiment
 const json = require("./topics.json");
 const random = require("random"); //import random number
+var Filter = require('bad-words'),
+    filter = new Filter();
 
 function generateAnswer(message) { //this function fetch the JSON to find the more similar subreddit and send sarcastic quotes
   const words = message.split(" ").filter((word) => word.length>2); //delete short words because it doesn't mean anything
@@ -39,19 +41,9 @@ function SentimentAnalysis(topic,text) {
 }
 
 function formattedAnswer(text) { // detect the insults
-  var answer
 
-  const swrWords = ["arse","arsehole","arses","ass","asses","asshole","bastard","bitch","bloody","boob","butt","butts","cock","cocks","crap","crappy","cunt","damn","dang","darn","dick","dicks","dumb","dyke","fuck","fucked","fucker","fuckin","fucks","goddam","heck","hell","homo","jeez","mofo","motherf","nigger","piss","prick","pussy","queer","screw","shit","sob","sonofa","suck","sucked","sucks","tit","tits","titties","titty","wanker"];
-  const res = swrWords.forEach(word => {
-    if (text.indexOf(word) !== -1) {
-
-      answer = "Wow, you said '" + word +"', didn't you? Your mom will be really proud of you!"
-      return answer
-    }
-  });
-  if (res == "") {
-    return false
+  if (filter.isProfane(text)) {
+    return "Wow so classy ... Your mom didn't tell you to be more polite ?";
   }
-  return res
 
 }
