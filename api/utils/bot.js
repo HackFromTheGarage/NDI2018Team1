@@ -2,6 +2,8 @@ const w2v = require("word2vec"); //import word2vec for using similarities
 const sentiment = require('node-sentiment'); //import sentiment
 const json = require("./topics.json");
 const random = require("random"); //import random number
+var levenshtein = require('fast-levenshtein');
+
 var Filter = require('bad-words'),
     filter = new Filter();
 
@@ -16,7 +18,7 @@ function generateAnswer(message) { //this function fetch the JSON to find the mo
 
   const resFinal = words.map(element => { //we store in resFinal a value with the max similarity and the associated topic
       Object.keys(json).forEach( key => {
-        similarityArray.push([w2v.similarity(element,key), key]);
+        similarityArray.push([levenshtein.get(element,key), key]);
       });
       similarityArray.sort((a,b) => b[0]-a[0]);
       return similarityArray[0];
