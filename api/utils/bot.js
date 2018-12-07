@@ -29,8 +29,6 @@ function generateAnswer(message) { //this function fetch the JSON to find the mo
 
   const rand = parseInt(Math.random()*(comments.length - 1));
 
-  console.log(rand, comments[rand])
-
   return comments[rand];
 
   //return SentimentAnalysis(resFinal[0][1],message); //return sentiment analysis on the topic given the input

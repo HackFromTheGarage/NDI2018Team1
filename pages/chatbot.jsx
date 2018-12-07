@@ -1,6 +1,6 @@
-import Layout from '../../layouts/default';
+import Layout from '../layouts/default';
 import Link from 'next/link';
-import Api from '../../service/Api'; // on importe l'api
+import Api from '../service/Api'; // on importe l'api
 
 import React, { Component } from 'react';
 
@@ -56,22 +56,15 @@ class Chatbot extends Component {
                 // on supprimer ce qu'il y a dans le textarea
                 this.setState({message: ""})
                 // on envoie le message avec l'api au serveur
-
-
-                /*
                 this.api.sendMessage(this.state.message).then(res=>{
-                    console.log(res);
-                    allMessages.push({computer: true, date: new Date(), message: "Fuck You man!"});
+                    allMessages.push({computer: true, date: new Date(), message: res.data.message});
+                    this.setState({messages: allMessages});
                     this.setState({loading: false});
                 }).catch(err=>{
                     console.log(err)
                 })
-                */
+                
             }
-
-
-
-
 
         }
     }
@@ -109,8 +102,11 @@ class Chatbot extends Component {
                         </div>
 
 
-
-                        {Messages}
+                        {Messages.map((message, i) => (
+                            <div key={i}>
+                                {message}
+                            </div>
+                        ))}
 
                         {this.state.loading ? <div className="chat friend" id="loadingGif">
                             <div className="user-photo"><img src={"/static/images/sarcasticGuy.png"}/></div>
@@ -136,7 +132,7 @@ class Chatbot extends Component {
                     <p className="ourTeam">Made with ❤️ by<a href="https://github.com/HackFromTheGarage/NDI2018Team1"
                                                              target="blank"> HackFromTheGarage1 !</a></p>
                 </div>
-                <Link href={{ pathname: '/' }}>Retour à l'acueil</Link>
+                <Link href={{ pathname: '/' }}><a>Retour à l'acueil</a></Link>
 
 
             </Layout>

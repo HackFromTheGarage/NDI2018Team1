@@ -11,7 +11,7 @@ export default ({ children, title = 'HackFromTheGarage1' }) => (
         </Head>
         <div className="app">
             <header>
-                <h1><Link href={{ pathname: '/' }}>Home</Link><Link href={{ pathname: '/about' }}>A propos</Link></h1>
+                <h1><Link href={{ pathname: '/' }}><a>Home</a></Link> <Link href={{ pathname: '/about' }}><a>A propos</a></Link> <Link href={{ pathname: '/chatbot' }}><a>Chatbot</a></Link></h1>
                 <h2>HackFromTheGarage</h2> 
             </header>
             { children }
