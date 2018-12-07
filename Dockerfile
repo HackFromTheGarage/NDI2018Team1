@@ -7,6 +7,8 @@ WORKDIR /usr/src/app
 # Install dependencies
 COPY package.json .
 RUN npm install
+RUN npm install sequelize-cli
+RUN npm install sequelize
 
 # Bundle app source
 COPY . .

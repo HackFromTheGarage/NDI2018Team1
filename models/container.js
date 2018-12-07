@@ -1,11 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Container = sequelize.define('Container', {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
     nom: {
       type: DataTypes.STRING,
       allowNull: false
@@ -17,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Container.associate = function(models) {
     // associations can be defined here
-    Container.hasMany(models.Object, {as: "Content"});
+    Container.hasMany(models.Obj);
   };
   return Container;
 };

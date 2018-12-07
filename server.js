@@ -8,7 +8,6 @@ const handle = nextApp.getRequestHandler()
 
 const api = require('./api/index.js')
 
-
 nextApp.prepare().then(() => {
     const app = express();
     app.use(bodyParser.json());
