@@ -13,7 +13,7 @@ services:
       #- VIRTUAL_HOST=solidarite.ponsaille.com
       #- LETSENCRYPT_HOST=solidarite.ponsaille.com
       #- LETSENCRYPT_EMAIL=jules.ponsaille@gmail.com
-  
+
   mysql:
     image: mysql
     restart: always
